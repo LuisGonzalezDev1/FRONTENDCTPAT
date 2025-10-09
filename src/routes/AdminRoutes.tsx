@@ -10,6 +10,13 @@ const routes = [
   { path: "/rol/create", component: lazy(() => import("../views/adminPanel/CreateRol")), roles: [] },
   { path: "/user", component: lazy(() => import("../views/adminPanel/TableUserView")), roles: [] },
   { path: "/user/create", component: lazy(() => import("../components/forms/adminPanel/CreateUserForm")), roles: [] },
+  { path: "/driver", component: lazy(() => import("../views/TableDriver")), roles: [] },
+  { path: "/driver/create", component: lazy(() => import("../views/CreateDriver")), roles: [] },
+  { path: "/carriers", component: lazy(() => import("../views/TableCarriers")), roles: [] },
+  { path: "/carriers/create", component: lazy(() => import("../components/forms/CarriersForm")), roles: [] },
+  { path: "/container", component: lazy(() => import("../views/TableContainer")), roles: [] },
+  { path: "/container/create", component: lazy(() => import("../components/forms/ContainersForm")), roles: [] },
+
 
 ];
 

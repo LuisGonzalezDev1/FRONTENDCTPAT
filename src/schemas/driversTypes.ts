@@ -23,3 +23,23 @@ export const ResponseDriverSchema = z.object({
 });
 
 export type DriverFormData = z.infer<typeof ResponseDriverSchema>
+
+//carriers
+export const createCarrierSchema = z.object({
+  name: z.string()
+})
+
+export const getCarrierSchema = z.object({
+  statusCode: z.number(),
+  response: z.array(
+    z.object({
+      id: z.number(),
+      name: z.string(),
+    })
+  ),
+  page: z.number().optional(),
+  total: z.number().optional(),
+  lastPage: z.number().optional(),
+});
+
+export type CarrierFormData = z.infer<typeof createCarrierSchema>

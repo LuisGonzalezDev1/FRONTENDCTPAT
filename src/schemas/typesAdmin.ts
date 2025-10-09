@@ -26,17 +26,20 @@ export const rolSchema = z.object({
   name: z.string(),
 });
 
-export const getRolesSchema = z.object({
+export const getRoleSchema = z.object({
   statusCode: z.number(),
   response: z.array(rolSchema),
+  page: z.number(),
+  total: z.number(),
+  lastPage: z.number(),
 });
 
+
+export type GetRolesResponse = z.infer<typeof getRoleSchema>;
 export type CreateRolFormData = z.infer<typeof createRolSchema>;
 export type Rol = z.infer<typeof rolSchema>;
-export type GetRolesResponse = z.infer<typeof getRolesSchema>;
 
 // crete user
-
 export const createUserSchema = z.object({
   name: z.string(),
   username: z.string(),

@@ -3,10 +3,10 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import DriverForm from "../components/forms/DriverForm";
 import {createDriverAPI} from "../api/DriversAPI.ts"
+import ContainersForm from "../components/forms/ContainersForm.tsx"
 
-export default function CreateRol() {
+export default function CreateContainer() {
   const navigate = useNavigate();
   const initialValues: CreateDriverFormData = { name: "", identification:0, license:0, carrier_id:0};
   const {
@@ -23,7 +23,7 @@ export default function CreateRol() {
     onError: (error) => toast.error(error.message),
     onSuccess: (response) => {
       toast.success(response);
-      navigate("/driver");
+      navigate("/container");
     },
   });
   
@@ -34,13 +34,13 @@ export default function CreateRol() {
       <div>
         <div>
           <h1>
-            Crear Nuevo Conductor
+            Crear Nuevo Contenedor
           </h1>
         </div> 
 
         <div>
           <Link
-            to="/driver"
+            to="/container"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -55,7 +55,7 @@ export default function CreateRol() {
             onSubmit={handleSubmit(handleForm)}
             noValidate
           >
-            <DriverForm register={register} errors={errors} />
+            <ContainersForm register={register} errors={errors} />
             <button
               type="submit"
             >
@@ -66,7 +66,7 @@ export default function CreateRol() {
 
         {/* Footer */}
         <div>
-          <p>Los cambios se aplicarán inmediatamente después de crear piloto</p>
+          <p>Los cambios se aplicarán inmediatamente después de crear el contenedor</p>
         </div>
       </div>
     </div>

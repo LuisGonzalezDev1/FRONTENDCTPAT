@@ -11,7 +11,7 @@ export default function DriverForm({ register, errors }: DriverFormProps) {
   return (
     <>
       <div>
-        <label htmlFor="name">Nombre</label>
+        <label htmlFor="name">Nombre Piloto</label>
         <input
           id="name"
           type="text"
