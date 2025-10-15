@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getRoleAPI } from "../../api/AdminAPI";
+import { getRoleAPI } from "../../api/RolAPI";
 import PaginationComponent from "../../components/utilities-components/PaginationComponent";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";

@@ -8,7 +8,6 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -16,13 +15,28 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@/components/*": ["components/*"],
+      "@/views/*": ["views/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/schemas/*": ["schemas/*"],
+      "@/api/*": ["api/*"],
+      "@/lib/*": ["lib/*"],
+      "@/orders/*": ["orders/*"],
+      "@/products/*": ["products/*"],
+      "@/routes/*": ["routes/*"],
+      "@/utilities-components/*": ["utilities-components/*"],
+      "@/auth/*": ["auth/*"]
+    }
   },
   "include": ["src"]
 }

@@ -3,8 +3,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import CrearRolForm from "../../components/forms/adminPanel/CreateRolForm";
-import { createRoleAPI } from "../../api/AdminAPI";
+import CrearRolForm from "../../components/forms/CreateRolForm";
+import { createRoleAPI } from "../../api/RolAPI";
 
 export default function CreateRol() {
   const navigate = useNavigate();
@@ -67,7 +67,6 @@ export default function CreateRol() {
           </form>
         </div>
 
-        {/* Footer */}
         <div className="mt-6 text-center text-sm text-[var(--color-text-tertiary)]">
           <p>Los cambios se aplicarán inmediatamente después de crear el rol</p>
         </div>

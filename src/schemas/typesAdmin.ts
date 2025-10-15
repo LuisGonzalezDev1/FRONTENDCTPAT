@@ -36,15 +36,28 @@ export const getRoleSchema = z.object({
 
 
 export type GetRolesResponse = z.infer<typeof getRoleSchema>;
-export type CreateRolFormData = z.infer<typeof createRolSchema>;
 export type Rol = z.infer<typeof rolSchema>;
+export type CreateRolFormData = z.infer<typeof createRolSchema>;
 
 // crete user
 export const createUserSchema = z.object({
   name: z.string(),
   username: z.string(),
-  password: z.string(),
-  rol_id: z.number()
+  password: z
+    .string()
+    .min(6, "La contraseña debe tener al menos 6 caracteres")
+    .regex(/[A-Za-z]/, "Debe contener al menos una letra")
+    .regex(/\d/, "Debe contener al menos un número")
+    .refine(
+      (val) =>
+        !["123", "1234", "12345", "password", "admin", "luis"].includes(
+          val.toLowerCase()
+        ),
+      {
+        message: "La contraseña es demasiado común o insegura",
+      }
+    ),
+  role_id: z.number()
 });
 
 export type createUserFormData = z.infer<typeof createUserSchema>
