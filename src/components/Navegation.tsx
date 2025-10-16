@@ -1,4 +1,12 @@
-import { HomeIcon, UserCog, User, Truck, CircleUserRound,Container  } from "lucide-react";
+import {
+  HomeIcon,
+  UserCog,
+  User,
+  Truck,
+  CircleUserRound,
+  Container,
+  File
+} from "lucide-react";
 import NavLinkComponent from "../components/utilities-components/NavLinkComponent";
 
 export default function Navegation() {
@@ -25,7 +33,11 @@ export default function Navegation() {
         </NavLinkComponent>
 
         <NavLinkComponent url="/container" text="Contenedor">
-          <Container  />
+          <Container />
+        </NavLinkComponent>
+
+        <NavLinkComponent url="/ctpats" text="Ctpats">
+          <File  />
         </NavLinkComponent>
       </>
     </div>

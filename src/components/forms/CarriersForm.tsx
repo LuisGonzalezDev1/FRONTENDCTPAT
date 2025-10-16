@@ -1,6 +1,6 @@
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "../utilities-components/ErrorMessage";
-import type { createCarrierFormSchema } from "../../schemas/driversTypes";
+import type { createCarrierFormSchema } from "../../schemas/types";
 
 type CarrierFormProps= {
   register: UseFormRegister<createCarrierFormSchema>;

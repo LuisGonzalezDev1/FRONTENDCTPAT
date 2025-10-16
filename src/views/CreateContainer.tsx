@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import ContainersForm from "../components/forms/ContainersForm.tsx";
-import type { CreateContainerFormData } from "@/schemas/driversTypes.ts";
+import type { CreateContainerFormData } from "@/schemas/types.ts";
 import { createContainerAPI } from "@/api/ContainerAPI.ts";
 
 export default function CreateContainer() {

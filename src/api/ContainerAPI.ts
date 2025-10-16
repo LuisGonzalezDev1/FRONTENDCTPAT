@@ -1,8 +1,8 @@
 import { isAxiosError } from "axios";
 import api from "../components/config/axios";
-import type {GetContainersResponse} from "../schemas/driversTypes"
-import type {CreateContainerFormData} from "@/schemas/driversTypes"
-import {ContainerSchema} from "@/schemas/driversTypes"
+import type {GetContainersResponse} from "../schemas/types"
+import type {CreateContainerFormData} from "@/schemas/types"
+import {ContainerSchema} from "@/schemas/types"
 
 export async function createContainerAPI(formData:CreateContainerFormData ) {
   try {

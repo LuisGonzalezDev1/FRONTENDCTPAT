@@ -1,8 +1,8 @@
-import {createDriverSchema } from "../schemas/driversTypes.ts";
-import type {CreateDriverFormData } from "../schemas/driversTypes.ts";
+import {createDriverSchema } from "../schemas/types.ts";
+import type {CreateDriverFormData } from "../schemas/types.ts";
 import api from "../components/config/axios.ts";
 import { isAxiosError } from "axios";
-import type {GetDriverResponse} from "../schemas/driversTypes.ts"
+import type {GetDriverResponse} from "../schemas/types.ts"
 
 export async function createDriverAPI(formData: CreateDriverFormData) {
   try {

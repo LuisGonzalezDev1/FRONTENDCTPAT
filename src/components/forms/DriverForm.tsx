@@ -1,6 +1,6 @@
 import { ErrorMessage } from "../utilities-components/ErrorMessage";
 import type { UseFormRegister, FieldErrors } from "react-hook-form";
-import type { CreateDriverFormData } from "../../schemas/driversTypes";
+import type { CreateDriverFormData } from "../../schemas/types";
 import { useEffect, useState } from "react";
 import { getCarriersAPI } from "@/api/CarriersAPI";
 

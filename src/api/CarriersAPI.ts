@@ -1,8 +1,8 @@
 import api from "../components/config/axios";
-import type { CarrierFormData } from "../schemas/driversTypes";
+import type { CarrierFormData } from "../schemas/types";
 import { isAxiosError } from "axios";
-import { getCarrierSchema } from "../schemas/driversTypes";
-import type {createCarrierFormSchema} from "@/schemas/driversTypes"
+import { getCarrierSchema } from "../schemas/types";
+import type {createCarrierFormSchema} from "@/schemas/types"
 
 export async function createCarriersAPI(formData: createCarrierFormSchema) {
   try {

@@ -1,10 +1,13 @@
-import type { createCarrierFormSchema } from "../schemas/driversTypes";
+import type { createCarrierFormSchema } from "../schemas/types";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import {createCarriersAPI} from "../api/CarriersAPI"
 import CarrierForm from "../components/forms/CarriersForm"
+import type {CreateCarrierResponse} from "@/schemas/types"
+import {createCarrierResponseSchema} from "@/schemas/types"
+
 
 export default function CreateCarrier() {
   const navigate = useNavigate();
@@ -18,12 +21,19 @@ export default function CreateCarrier() {
     mode: "onChange",
   });
 
-  const { mutate } = useMutation({
-    mutationFn: createCarriersAPI,
-    onError: (error) => toast.error(error.message),
+  // Mutation profesional dentro del mismo componente
+  const { mutate } = useMutation<CreateCarrierResponse, never, createCarrierFormSchema>({
+    mutationFn: async (data) => {
+      const response = await createCarriersAPI(data);
+      return createCarrierResponseSchema.parse(response);
+    },
     onSuccess: (response) => {
-      toast.success(response);
-      navigate("/carriers");
+      if (response.statusCode === 201) {
+        toast.success(response.message);
+        setTimeout(() => navigate("/carriers"), 100);
+      } else {
+        toast.error(response.message || "No se pudo crear el transportista");
+      }
     },
   });
 

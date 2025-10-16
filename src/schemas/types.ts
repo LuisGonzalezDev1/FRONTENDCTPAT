@@ -1,4 +1,6 @@
 import z from "zod";
+
+//driver
 export const createDriverSchema = z.object({
   name: z.string(),
   identification: z.number(),
@@ -6,7 +8,17 @@ export const createDriverSchema = z.object({
   carrier_id: z.number(),
 });
 
-//driver
+export const createDriverResponseSchema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+  response: z.object({
+    id: z.number(),
+    name: z.string(),
+    identification: z.string(),
+    license: z.string(),
+  }).optional(), // opcional porque en error no habrá response
+});
+
 export const driverSchema = z.object({
   id: z.number(),
   name: z.string(),
@@ -20,12 +32,26 @@ export const getDriverSchema = z.object({
   lastPage: z.number(),
 });
 
-export type GetDriverResponse = z.infer<typeof getDriverSchema>;
 export type CreateDriverFormData = z.infer<typeof createDriverSchema>;
+export type GetDriverResponse = z.infer<typeof getDriverSchema>;
+export type CreateDriverResponse = z.infer<typeof createDriverResponseSchema>;
+
 
 //carriers
 export const carrierSchema = z.object({
   name: z.string(),
+});
+
+export const createCarrierResponseSchema = z.object({
+  statusCode: z.number(),
+  message: z.string(),
+  response: z
+    .object({
+      id: z.number(),
+      name: z.string(),
+      createdAt: z.string(),
+    })
+    .optional(), //optional, may or may not be included
 });
 
 export const getCarrierSchema = z.object({
@@ -41,6 +67,7 @@ export const getCarrierSchema = z.object({
 });
 
 export type createCarrierFormSchema = z.infer<typeof carrierSchema>;
+export type CreateCarrierResponse = z.infer<typeof createCarrierResponseSchema>;
 export type CarrierFormData = z.infer<typeof getCarrierSchema>;
 
 //container
@@ -74,7 +101,12 @@ export type CreateContainerFormData = z.infer<typeof ContainerSchema>;
 const ImageSchema = z.object({
   image: z.string(),
   type: z.string(),
-  description: z.string().optional(),
+  description: z.string(),
+});
+
+export const ctpatResponseSchema = z.object({
+  statusCode: z.literal(200),
+  message: z.literal("Ctpat Creado Correctamente")
 });
 
 export const CtpatSchema = z.object({
@@ -85,3 +117,4 @@ export const CtpatSchema = z.object({
 });
 
 export type CreateCtpatFormData = z.infer<typeof CtpatSchema>;
+export type CtpatResponseData = z.infer<typeof ctpatResponseSchema>

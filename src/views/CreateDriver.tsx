@@ -1,12 +1,16 @@
-import type { CreateDriverFormData } from "../schemas/driversTypes";
+import type { CreateDriverFormData } from "../schemas/types.ts";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import DriverForm from "../components/forms/DriverForm";
 import { createDriverAPI } from "../api/DriversAPI.ts";
+import type {CreateDriverResponse} from "@/schemas/types.ts"
+import {createDriverResponseSchema} from "@/schemas/types.ts"
+
 
 export default function CreateDriver() {
+
   const navigate = useNavigate();
   const initialValues: CreateDriverFormData = {
     name: "",
@@ -23,12 +27,18 @@ export default function CreateDriver() {
     mode: "onChange",
   });
 
-  const { mutate } = useMutation({
-    mutationFn: createDriverAPI,
-    onError: (error) => toast.error(error.message),
+  const { mutate } = useMutation<CreateDriverResponse, never, CreateDriverFormData>({
+    mutationFn: async (data) => {
+      const response = await createDriverAPI(data);
+      return createDriverResponseSchema.parse(response);
+    },
     onSuccess: (response) => {
-      toast.success(response);
-      navigate("/driver");
+      if (response.statusCode === 200) {
+        toast.success(response.message);
+        setTimeout(() => navigate("/driver"), 100);
+      } else {
+        toast.error(response.message || "No se pudo crear el conductor. Verifica los datos.");
+      }
     },
   });
 

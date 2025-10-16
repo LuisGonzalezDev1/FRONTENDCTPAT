@@ -15,6 +15,8 @@ const routes = [
   { path: "/carriers/create", component: lazy(() => import("../views/CreateCarrier")), roles: [] },
   { path: "/container", component: lazy(() => import("../views/TableContainer")), roles: [] },
   { path: "/container/create", component: lazy(() => import("@/views/CreateContainer")), roles: [] },
+  { path: "/ctpats", component: lazy(() => import("@/components/forms/CtpatsForm")), roles: [] },
+
 ];
 
 export default function AdminRoutes() {

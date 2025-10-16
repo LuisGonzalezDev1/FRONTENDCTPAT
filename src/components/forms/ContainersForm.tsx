@@ -1,4 +1,4 @@
-import type { CreateContainerFormData } from "@/schemas/driversTypes";
+import type { CreateContainerFormData } from "@/schemas/types";
 import type { UseFormRegister, FieldErrors } from "react-hook-form";
 import { ErrorMessage } from "../utilities-components/ErrorMessage";
 

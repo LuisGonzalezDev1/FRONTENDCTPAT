@@ -35,7 +35,6 @@ export default function LoginView() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 flex items-center justify-center p-4">
-      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-slate-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
@@ -43,7 +42,6 @@ export default function LoginView() {
 
       <div className="w-full max-w-md relative">
         <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
-          {/* Header Section */}
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-8 py-10 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 to-slate-600/10"></div>
             <div className="relative">
@@ -59,7 +57,6 @@ export default function LoginView() {
             </div>
           </div>
 
-          {/* Form Section */}
           <form
            className="px-8 py-8"
            onSubmit={handleSubmit(onSubmit) }
@@ -74,7 +71,6 @@ export default function LoginView() {
             </div>
 
             <div className="space-y-5">
-              {/* Username */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Usuario
@@ -98,7 +94,6 @@ export default function LoginView() {
                 </div>
               </div>
 
-              {/* Password */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Contraseña
@@ -133,7 +128,6 @@ export default function LoginView() {
                 </div>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white font-semibold py-3.5 text-base rounded-xl shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
